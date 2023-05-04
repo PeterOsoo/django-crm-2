@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block content%}
 <div class="col-md-6 offset-md-3">
+	{% if user.is_authenticated %}
+	<h4>DJ CRM</h4>
+	{% else %}
 	<h4 class="mb-2">Login</h4>
 	<form action="{% url 'home' %}" method="POST">
 		{% csrf_token %}
@@ -27,5 +30,6 @@
 
 		<button type="submit" class="btn btn-secondary">Login</button>
 	</form>
+	{% endif%}
 </div>
 {% endblock content%}
