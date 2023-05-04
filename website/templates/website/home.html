@@ -1,5 +1,31 @@
 {% extends 'base.html' %} {% block content%}
 <div class="col-md-6 offset-md-3">
-	<h4>Home Page</h4>
+	<h4 class="mb-2">Login</h4>
+	<form action="{% url 'home' %}" method="POST">
+		{% csrf_token %}
+		<div class="mb-3">
+			<label for="username" class="form-label">Username</label>
+			<input
+				type="text"
+				name="username"
+				class="form-control"
+				id="username"
+				aria-describedby="emailHelp"
+				required
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputPassword1" class="form-label">Password</label>
+			<input
+				type="password"
+				class="form-control"
+				name="password"
+				id="exampleInputPassword1"
+				required
+			/>
+		</div>
+
+		<button type="submit" class="btn btn-secondary">Login</button>
+	</form>
 </div>
 {% endblock content%}
